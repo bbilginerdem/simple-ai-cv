@@ -14,6 +14,17 @@
 \usepackage[russian,english]{babel}         % Language styles
 \usepackage{moresize}                       % HUGE size
 \usepackage{etoolbox}                       % CSV lists, patching helpers
+\usepackage{needspace}                      % keep an entry and its bullets together
+\usepackage{fontspec}                       % System fonts
+
+% Main font. Set \cvfont in main.tex to any installed family, e.g. "Segoe UI".
+% Leave it empty to keep the classic Computer Modern serif.
+\providecommand{\cvfont}{}
+\ifx\cvfont\empty
+  \setmainfont{Latin Modern Roman}
+\else
+  \setmainfont{\cvfont}[Numbers = Lining, Scale = 0.96]
+\fi
 
 % % Chinese
 % \usepackage{xeCJK}
@@ -33,6 +44,11 @@
 \raggedright
 \setlength{\tabcolsep}{0in}
 
+% One bullet glyph at every list level: nested dashes read as prose, not list items.
+\renewcommand{\labelitemi}{\textbullet}
+\renewcommand{\labelitemii}{\textbullet}
+\setlist{noitemsep, topsep=2pt, partopsep=0pt}
+
 % Quotes
 \usepackage[autostyle,english=american]{csquotes}
 \MakeOuterQuote{"}
@@ -51,11 +67,11 @@
 \makeatother
 \AtBeginDocument{\globalcolor{color-text}}
 
-% Shorthand
-\newcommand{\github}[1]{\href{https://github.com/#1/}{#1}}
+% Shorthand: the visible text is the full address, so parsers resolve it without the icon
+\newcommand{\github}[1]{\href{https://github.com/#1/}{github.com/#1}}
 \newcommand{\email}[1]{\href{mailto:#1}{#1}}
 \newcommand{\website}[1]{\href{https://#1/}{#1}}
-\newcommand{\linkedin}[1]{\href{https://www.linkedin.com/in/#1/}{#1}}
+\newcommand{\linkedin}[1]{\href{https://www.linkedin.com/in/#1/}{linkedin.com/in/#1}}
 
 % Simple heading: name + comma-separated contact items
 \makeatletter
@@ -66,24 +82,29 @@
     \forcsvlist{\simplecv@contact}{#2}%
   \end{center}
 }
+% Items are kept whole and separated by glue only, so a wrapped contact line
+% never starts or ends with a stray separator glyph.
 \newcommand{\simplecv@contact}[1]{%
-  \simplecv@sep #1%
-  \def\simplecv@sep{\hspace{10pt}\vrule\hspace{10pt}}%
+  \simplecv@sep \mbox{#1}%
+  \def\simplecv@sep{\hspace{12pt}}%
 }
 \makeatother
 
-% Inline heading
-\newcommand{\headinginline}[2]{
-  \begin{minipage}[t]{0.60\textwidth}
-    \vspace*{\fill}
-    \HUGE \textcolor{color-title}{#1}
-  \end{minipage}
-  \begin{minipage}[t]{0.39\textwidth}
-    \begin{flushright}
-      #2
-    \end{flushright}
-  \end{minipage}
+% Heading: [job title]{name}{comma-separated contact items}
+% Everything stacks in one column so extraction order is name, title, then
+% addresses. Wrap a contact item that contains a comma in braces.
+\makeatletter
+\newcommand{\headinginline}[3][]{%
+  \begingroup
+  \noindent{\HUGE \textcolor{color-title}{#2}}\par
+  \ifstrempty{#1}{\vspace{2pt}}{%
+    \vspace{2pt}\noindent{\large \textcolor{color-detail}{#1}}\par\vspace{3pt}}%
+  \noindent\def\simplecv@sep{}{\small \forcsvlist{\simplecv@contact}{#3}}\par
+  \vspace{5pt}
+  \noindent\textcolor{color-title}{\rule{\linewidth}{1pt}}
+  \endgroup
 }
+\makeatother
 
 % Two-columns
 \newcommand{\sidebyside}[2]{
@@ -94,18 +115,15 @@
 }
 
 % Section titles
-\titleformat{\section}{
-\scshape\raggedright\Large\color{color-title}}{}{0em}{}
+\titleformat{\section}{%
+  \raggedright\Large\bfseries\color{color-title}\addfontfeatures{LetterSpace=4}}{}{0em}{}
 [\color{color-title}\titlerule\vspace{-\smallskipamount}]
+\titlespacing*{\section}{0pt}{10pt}{5pt}
 
 % Subsection titles
 \titleformat{\subsection}{%
-  % \scshape
-\raggedright\large\color{color-title}}{}{0em}{}[\vspace{-\smallskipamount}]
-
-% Match other CV sections (biblatex defaults to \section* plus marks)
-\defbibheading{bibliography}[\refname]{
-\section{#1}}
+  \raggedright\large\color{color-title}}{}{0em}{}[\vspace{-\smallskipamount}]
+\titlespacing*{\subsection}{0pt}{6pt}{3pt}
 
 % Footer
 \fancyfoot[R]{Page \thepage \hspace{1pt} of \pageref{LastPage}}
@@ -141,9 +159,11 @@
     \item[]\small{\textit{#4}}}}
 
 \newcommand{\entrybig}[5][]{
+\needspace{5\baselineskip}  % an entry that starts a page should finish on it
 \item[#1]  % org + location, role + dates (jobs, education)
-  \begin{tabular*}{\linewidth}{l@{\extracolsep{\fill}}r}
-    #2 & #3 \\ {\small#4} & {\small #5} \\
+  \begin{tabular*}{\linewidth}{@{}l@{\extracolsep{\fill}}r@{}}
+    {\normalsize\bfseries #2} & {\small\textcolor{color-detail}{#3}} \\
+    {\small #4} & {\small\textcolor{color-detail}{#5}} \\
 \end{tabular*}}
 
 \newcommand{\entryrole}[2]{% extra role + dates under the same \entrybig (promotions)

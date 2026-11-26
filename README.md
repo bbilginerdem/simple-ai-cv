@@ -1,35 +1,72 @@
-
 # Simple-CV
 
-XeLaTeX CV for Behzat Bilgin Erdem. Layout is based on the Simple-CV template.
+A CV that an AI agent rewrites for one job at a time, using only the experience you have recorded. You supply two text files; the agent produces the PDF and the machine-readable copies.
 
-## Tailor it to a job
+## How it works
 
-1. Paste the job description into `description.txt`, under the header. Delete the previous job first.
-2. Leave `experiences.txt` as the fact list. Add a new role there when your history changes. Do not put the job description in that file.
-3. Open this folder in the agent and say:
+Three files drive everything:
 
-```
-Follow skills/tailor-cv/SKILL.md
-```
+| File | What it holds | Who edits it |
+| --- | --- | --- |
+| `experiences.txt` | Every fact: employers, cities, dates, roles, tools, metrics, degrees | You. It is the only source of truth |
+| `description.txt` | The one job posting you are answering right now | You. Replace it for each job |
+| `skills/tailor-cv/SKILL.md` | The rules an agent follows while rewriting the CV | Rarely |
 
-4. Open `main.pdf`.
+Everything else is generated from those three: `main.tex` and `sections/*.tex` (the document), `main.pdf` (the output), `cv.md` and `resume.json` (the machine-readable record). Hand-edit them only to change layout or wording, never to add a fact.
 
-Tools that load `AGENTS.md` (Cursor, Codex, and others) already know to follow that skill. A local model that cannot see the folder needs the same sentence plus the contents of `skills/tailor-cv/SKILL.md`, `description.txt`, `experiences.txt`, `main.tex`, and `sections/`.
+## Set up once
 
-The skill keeps the PDF to one or two pages, changes wording only where `experiences.txt` already supports it, and leaves both input files untouched.
-
-## Compile by hand
-
-XeLaTeX, from the repo root. Run it twice so the page numbers settle. Perl is not installed, so `latexmk` will fail.
+1. Install an XeLaTeX distribution: MiKTeX on Windows, MacTeX or TeX Live on macOS and Linux.
+2. Install a system sans font. `Noto Sans` is the default in `main.tex`; `Rubik`, `Liberation Sans`, and `Carlito` also work.
+3. Open this folder in an AI coding agent that loads `AGENTS.md` (Qoder, Cursor, Codex, Claude Code, and similar). `AGENTS.md` points it at the skill, so no further setup is needed.
+4. Check the toolchain from the repo root, twice so the page count settles:
 
 ```bash
 xelatex -interaction=nonstopmode -halt-on-error main.tex
 xelatex -interaction=nonstopmode -halt-on-error main.tex
 ```
 
-Theme color is `\theme` at the top of `main.tex`. Contact icons come from the fontawesome package.
+You should get a two-page `main.pdf`. `latexmk` needs Perl and is not used here.
+
+## Tailor the CV to a job
+
+1. Paste the full posting into `description.txt`, under its comment header, replacing the previous job.
+2. Tell the agent: `Tailor my CV for this job.` For a model that cannot see the folder, send `Follow skills/tailor-cv/SKILL.md` with the contents of `experiences.txt`, `description.txt`, `main.tex`, and `sections/`.
+3. The agent reads the posting, selects the roles, projects, and skills that answer it, rewrites `sections/*.tex`, compiles, and reports what it kept and what it dropped.
+4. Open `main.pdf`. If the emphasis is wrong, say what to stress and let it rebuild; the facts do not change.
+
+What the skill refuses to do:
+
+- Add an employer, date, tool, metric, or degree that `experiences.txt` does not state. Docker does not justify Kubernetes.
+- Borrow wording from the posting unless your recorded experience already supports it.
+- Rewrite `experiences.txt` or `description.txt`.
+- Go past two pages, or start when `description.txt` still contains only its comment header. In that case it stops and asks for the posting.
+
+## When your history changes
+
+1. Add or correct the role in `experiences.txt`, including city, dates, tools, and any number you can defend in an interview.
+2. Tell the agent: `Update the CV files from experiences.txt.`
+3. It refreshes `sections/*.tex`, `cv.md`, and `resume.json` together and recompiles `main.pdf`.
+
+## Outputs
+
+| File | Who it is for |
+| --- | --- |
+| `main.pdf` | Recruiters and hiring managers. Two A4 pages |
+| `cv.md` | Applicant forms and AI chat assistants that read text instead of a PDF. Standard section names, full URLs, `Nov 2023 - Sep 2024` dates |
+| `resume.json` | Structured parsers. One entry per role, project, and degree, with `highlights` arrays and `YYYY-MM` dates |
+
+`cv.md` and `resume.json` hold the complete record and are not tailored per job; the PDF is.
+
+## Layout switches
+
+All at the top of `main.tex`:
+
+- `\theme` for the accent color: `black`, `RedViolet`, `ForestGreen`, `MidnightBlue`, `Blue`.
+- `\cvfont` for the typeface. Leave it empty for the Computer Modern serif. Avoid `Segoe UI`: its PDF text layer maps parentheses to Arabic ligature code points, so `(remote)` stops extracting correctly.
+- `\documentclass[a4paper,11pt]` for paper size and body size. Switch to `letterpaper` for US applications.
+- The headline under the name is the optional first argument of `\headinginline` in `main.tex`.
 
 ## License
 
-Available under [the MIT license](https://opensource.org/licenses/MIT), but all the data is owned by me.
+The code is under [the MIT license](https://opensource.org/licenses/MIT). The CV data stays mine.

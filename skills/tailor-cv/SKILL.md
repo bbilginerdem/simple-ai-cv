@@ -3,12 +3,16 @@ name: tailor-cv
 description: >-
   Rewrites this XeLaTeX CV for one job posting. Use when the user asks to
   tailor, adapt, match, rewrite, or update the CV, resume, or LaTeX for a job,
-  role, or description.txt. Facts come only from experiences.txt.
+  role, or description.txt, or when experiences.txt changes and the CV, cv.md,
+  and resume.json must be brought back in sync. Facts come only from
+  experiences.txt.
 ---
 
 # Tailor the CV
 
 Facts are in `experiences.txt`. The target job is in `description.txt`. The document is `main.tex` and `sections/*.tex`. Output is `main.pdf`.
+
+`cv.md` and `resume.json` are the complete machine-readable record of every fact. They are not tailored to one job and are not rewritten here; update them only when `experiences.txt` changes.
 
 ## Steps
 
@@ -18,7 +22,9 @@ Facts are in `experiences.txt`. The target job is in `description.txt`. The docu
    - Put the matching roles, projects, and skills first.
    - Use words from the job posting only when `experiences.txt` already supports them.
    - Keep the CV to one or two pages.
-   - Keep these commands: `\headinginline`, `\entrybig`, `\entry`, `\innerlist`, `\denseouterlist`.
+   - Keep these commands: `\headinginline`, `\entrybig`, `\entry`, `\innerlist`, `\denseouterlist`. `\headinginline` takes the headline as its optional argument.
+   - Write dates as `Nov 2023 -- Sep 2024` and countries in full (`Munich, Germany`). Parsers read those formats; `2023/11` and `DE` are not reliable.
+   - `\entrybig` bolds the organization itself, so write `{NexArb}` not `{\textbf{NexArb}}`.
    - In LaTeX, write `\%`, `\&`, and `\_` for those characters.
 4. Do not edit `experiences.txt` or `description.txt`.
 5. From the repo root, compile twice. `latexmk` needs Perl and is not available.
@@ -34,14 +40,30 @@ xelatex -interaction=nonstopmode -halt-on-error main.tex
 
 - Do not restore the template CV for Doruk Çetin. That is not this person's experience.
 - Do not name a tool, certificate, degree year, or metric that `experiences.txt` does not state. Docker does not justify Kubernetes. "Three Oracle certifications" does not justify naming the certificates.
+- Do not add a home location, a postal code, or education years. `experiences.txt` records none.
+
+## When `experiences.txt` changes
+
+No job is involved, so nothing is selected or dropped. Bring every copy back in line with the file:
+
+1. Rewrite `sections/*.tex` so the PDF carries the new or corrected role, newest first.
+2. Rewrite `cv.md` and `resume.json` with the same facts. They hold every role, project, and degree.
+3. Add newly used tools to the matching line in `skills.tex`, `cv.md`, and `resume.json`, but only when a role or project in `experiences.txt` says they were used.
+4. Compile twice, then confirm the text layer still extracts, expecting one line back:
+
+```bash
+pdftotext -enc UTF-8 main.pdf - | grep -c "Munich, Germany (remote)"
+```
+
+Zero means the font or layout broke extraction. This has happened before: `Segoe UI` maps parentheses to Arabic ligature code points in the PDF text layer.
 
 ## Bullet shape
 
 ```latex
 \entrybig
-{\textbf{NexArb}}{Munich, DE (remote)}
+{NexArb}{Munich, Germany (remote)}
 {Software Developer}
-{2023/11 -- 2024/09}
+{Nov 2023 -- Sep 2024}
 \innerlist{
   \entry{Resolved 12 API bottlenecks against a FastAPI backend and cut latency by 35\%}
 }

@@ -1,18 +1,31 @@
-\documentclass[letterpaper,11pt]{article}
+\documentclass[a4paper,11pt]{article}
 
 % Choose theme, e.g. black, RedViolet, ForestGreen, MidnightBlue, Blue
 \def\theme{MidnightBlue}
 
+% Main font: any installed family (Segoe UI, Noto Sans, Rubik). Leave empty for the serif default.
+\def\cvfont{Noto Sans}
+
 \usepackage{simplecv}
+
+% Searchable document metadata
+\hypersetup{
+  pdftitle={Behzat Bilgin Erdem -- Software Engineer CV},
+  pdfauthor={Behzat Bilgin Erdem},
+  pdfsubject={Software Engineer, frontend-heavy web and mobile products},
+  pdfkeywords={Behzat Bilgin Erdem, Software Engineer, Frontend Developer, React, Next.js, React Native, TypeScript, JavaScript, Python, GraphQL, FastAPI, Node.js, Django, Strapi, PostgreSQL, Docker, AWS, Azure, Vercel, Web3},
+  pdfcreator={XeLaTeX},
+  pdflang={en}
+}
 
 \begin{document}
 
-\headinginline{Behzat Bilgin Erdem}{
-  \faEnvelope{} \email{bbilgin.erdem@gmail.com} \\
-  \faGlobe{} \website{behzatbilginerdem.com}
-  \faLinkedin{} \linkedin{bbilginerdem}
-  \faGithub{} \github{bbilginerdem} \\
-  \faPhone{} +90 545 932 4879
+\headinginline[Software Engineer --- frontend-heavy web and mobile, 5+ years]{Behzat Bilgin Erdem}{
+  \faEnvelope\ \email{bbilgin.erdem@gmail.com},
+  \faPhone\ +90 545 932 4879,
+  \faGlobe\ \website{behzatbilginerdem.com},
+  \faLinkedin\ \linkedin{bbilginerdem},
+  \faGithub\ \github{bbilginerdem}
 }
 
 \import{sections/}{summary.tex}
