@@ -1,12 +1,13 @@
 # Instructions for any coding agent
 
-The CV workflow is the skill at `skills/tailor-cv/SKILL.md`.
+The CV and cover-letter workflow is the skill at `skills/tailor-cv/SKILL.md`.
 
-When the user asks to tailor the CV for a job, or to update it after a change to `data/experiences.txt`, read that skill and follow it before editing. If you cannot open other files, still obey this:
+When the user asks to tailor outputs for a job, or to update them after a change to `data/experiences.txt`, read that skill and follow it before editing. If you cannot open other files, still obey this:
 
 - The job is only in `data/description.txt`. If that file is still just the instruction comments, stop and ask for the posting.
-- Facts are only in `data/experiences.txt`. Do not invent employers, dates, tools, metrics, or degrees.
-- For a job, edit `source/cv-en.tex`, `source/cv-tr.tex`, `source/sections/en/*.tex`, and `source/sections/tr/*.tex` only. Keep the English and Turkish versions aligned.
+- Facts are only in `data/experiences.txt`. Do not invent employers, dates, tools, metrics, degrees, certifications, locations, or role-specific years of experience.
+- A changed `data/description.txt` or a request to "tailor my outputs" makes all four job-facing documents stale: both CVs and both cover letters.
+- For a job, edit `source/cv-en.tex`, `source/cv-tr.tex`, `source/sections/en/*.tex`, `source/sections/tr/*.tex`, `source/letters/letter-en.tex`, `source/letters/letter-en.txt`, `source/letters/letter-tr.tex`, and `source/letters/letter-tr.txt`. Keep the English and Turkish versions aligned.
 - `data/cv.md` and `data/resume.json` are the complete machine-readable copies of the same facts. Tailoring for one job does not change them; a change to `data/experiences.txt` does.
-- Compile both CVs twice from `source/` with `-output-directory=../output`: `cv-en.tex` and `cv-tr.tex`.
+- Remove generated files from `output/` except `.gitkeep`, then compile all four documents twice from `source/` with `-output-directory=../output`: `cv-en.tex`, `cv-tr.tex`, `letters/letter-en.tex`, and `letters/letter-tr.tex`.
 - Do not restore the Doruk Çetin template CV.

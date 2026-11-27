@@ -1,34 +1,29 @@
 Behzat Bilgin Erdem
-Yazılım Mühendisi — Yapay Zekâ ve Sistem Entegrasyonu
+Yazılım Mühendisi, 5+ Yıl — İlişkisel Veri Tabanları & Arka Yüz Sistemleri
 E-posta: bbilgin.erdem@gmail.com | Tel: +90 545 932 4879
 Web: behzatbilginerdem.com | LinkedIn: bbilginerdem | GitHub: bbilginerdem
 
 27 Kasım 2026
 
-Kime: Ekrem Furniture Orman Ürünleri İnş. İth. İhr. San. ve Tic. Ltd. Şti.
+Kime: CMIT Bilişim — TEYAŞ TDV Eğitim Yatırım A.Ş.
 İlgili Birim / İşe Alım Ekibi
-Ankara, Türkiye
 
-Konu: Yapay Zekâ Destekli Yazılım Geliştirme Uzmanı Başvurusu
+Konu: Veri Tabanı Yöneticisi Başvurusu
 
 Sayın Yetkili,
 
-Mobilya ve dekorasyon üretim süreçlerinizi dijitalleştirmek, teknik çizimler, parça/kesim listeleri, maliyet hesaplamaları ve CNC üretim dosyalarına uzanan yapay zekâ destekli, entegre bir üretim yazılımı geliştirmek üzere açmış olduğunuz Yapay Zekâ Destekli Yazılım Geliştirme Uzmanı pozisyonuna başvurmaktan büyük bir memnuniyet duyuyorum.
+CMIT Bilişim’in, Diyanet İşleri Başkanlığı Bilgi İşlem Daire Başkanlığı bünyesinde yürütülen kamu projelerinde görevlendirilmek üzere ilan ettiği Veri Tabanı Yöneticisi pozisyonuna başvuruyorum. İlanın veri tabanı yönetimi, performans, güvenlik, veri bütünlüğü ve uygulama ekipleriyle koordinasyon vurgusu; arka yüz ve ilişkisel veri tabanı deneyimimle örtüşüyor.
 
-Orta Doğu Teknik Üniversitesi Fizik lisansım ve Bilimsel Hesaplama yüksek lisans sürecim boyunca edindiğim algoritmik modelleme, sayısal simülasyon ve veri analitiği temellerimi; 5 yılı aşkın profesyonel yazılım geliştirme deneyimimle harmanlayarak somut sistem çözümlerine dönüştürdüm.
+5+ yıllık uçtan uca ve arka yüz yazılım geliştirme deneyimine sahibim. Oracle DB ve PostgreSQL ile çalışmalarım yüksek hacimli işlem yönetimi, ilişkisel veri modelleme, sorgu optimizasyonu, veritabanı yönetimi ve konteynerize dağıtımları kapsıyor. Orta Doğu Teknik Üniversitesi Fizik lisansım ve Bilimsel Hesaplama yüksek lisans çalışmalarım; sayısal modelleme, veri yapıları ve büyük matris işlemlerinde bellek yönetimi temellerimi güçlendirdi.
 
-Ekrem Furniture bünyesinde hedeflenen üretim otomasyonu ve yapay zekâ sistemleri projesine özellikle şu yetkinliklerimle doğrudan katkı sağlayabileceğime inanıyorum:
+Öne çıkan deneyimlerim:
 
-- Yazılım Mimarisi ve API Entegrasyonu: Python, FastAPI, Node.js ve modern web teknolojileriyle yüksek ölçekli servisler mimarileme, karmaşık veri ilişkilerini modelleme ve API darboğazlarını çözerek sistem gecikmelerini optimize etme deneyimi.
-- Yapay Zekâ ve Model Entegrasyonları: VideoAI projesinde geliştirdiğim yapay zekâ model ve API entegrasyonları, büyük dosya işleme hatları ve bilimsel hesaplama geçmişime dayanan makine öğrenmesi uygulamaları.
-- Donanım, Gömülü Sistem ve Üretim Entegrasyonu: Uzay ve Hızlandırıcı Teknolojileri bünyesinde gerçekleştirdiğim Arduino tabanlı donanım otomasyonu, Bluetooth veri iletimi ve 100ms altı gecikmeyle gerçek zamanlı izleme altyapısı; firmanızın CAD/CAM, CNC tezgahları ve üretim bantlarıyla kuracağı yazılım köprüleri için sağlam bir zemin sunmaktadır.
-- Veri Tabanı ve Dağıtım Altyapısı: PostgreSQL üzerinde optimize edilmiş veri iş akışları ve Docker/Docker Compose ile üretim standartlarında konteynerize dağıtımlar.
+- İlişkisel veri tabanı işlemleri: Oracle DB üzerinde günde 10.000+ işlem gerçekleştiren Java ve Spring Boot arka yüz servisleri geliştirdim; üç Oracle sertifikası aldım ve %85 kod kapsamına ulaşan birim testleri kurdum.
+- Veritabanı yönetimi ve süreklilik: Uzay ve Hızlandırıcı Teknolojileri Uygulama ve Araştırma Merkezi’nde veritabanı yönetimi gerçekleştirdim; donanım kontrolünü otomatikleştiren Arduino programları yazdım ve %99.9 sistem çalışma süresi sağladım.
+- PostgreSQL modelleme ve optimizasyon: Keta projesinde karmaşık veri ilişkileri, otomatik içerik iş akışları ve API entegrasyonu için optimize edilmiş PostgreSQL sorguları tasarladım; PostgreSQL’i Docker ve Docker Compose ile konteynerize ettim.
+- Güvenlik ve performans: NexArb’da 500+ eşzamanlı kullanıcı için güvenli kimlik doğrulama akışları mimariledim; FastAPI arka yüzünü entegre ettim, 12 kritik API darboğazını çözerek gecikme süresini %35 azalttım.
 
-Teknoloji ile imalat dinamiklerini bir araya getiren böylesi yenilikçi ve katma değerli bir projenin parçası olmayı; analitik problem çözme becerim ve araştırma odaklı çalışma disiplinimle firmanızın dijital dönüşüm hedeflerine güçlü bir ivme kazandırmayı arzu ediyorum.
-
-Niteliklerimi detaylı olarak inceleyebilmeniz adına güncel özgeçmişimi ekte bilginize sunar, vizyonunuzu ve projenin teknik detaylarını yüz yüze değerlendirebileceğimiz bir mülakat fırsatı tanımanızı dilerim.
-
-Zamanınız ve değerlendirmeniz için teşekkür ederim.
+CMIT Bilişim’in kamu projelerinde güvenilir, güvenli ve performans odaklı veri tabanı hizmetlerine katkı sağlamaktan memnuniyet duyarım. Zamanınız ve değerlendirmeniz için teşekkür ederim.
 
 Saygılarımla,
 Behzat Bilgin Erdem

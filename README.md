@@ -47,54 +47,42 @@ Generated PDFs and auxiliary files are ignored by Git. The `output/` folder is k
 
 ## Build the documents
 
-Run these commands from the repository root. Each document is compiled twice so page references and layout settle.
-
-### English and Turkish CVs
+Run these commands from the repository root. They clear stale artifacts from `output/` and rebuild every current job-facing output. Each document is compiled twice so page references and layout settle.
 
 ```bash
 cd source
-xelatex -interaction=nonstopmode -halt-on-error -output-directory=../output cv-en.tex
-xelatex -interaction=nonstopmode -halt-on-error -output-directory=../output cv-en.tex
-xelatex -interaction=nonstopmode -halt-on-error -output-directory=../output cv-tr.tex
-xelatex -interaction=nonstopmode -halt-on-error -output-directory=../output cv-tr.tex
+find ../output -maxdepth 1 -type f ! -name '.gitkeep' -delete
+for doc in cv-en cv-tr letters/letter-en letters/letter-tr; do
+  xelatex -interaction=nonstopmode -halt-on-error -output-directory=../output "$doc.tex"
+  xelatex -interaction=nonstopmode -halt-on-error -output-directory=../output "$doc.tex"
+done
 cd ..
 ```
 
-The CVs are A4 documents and should remain within two pages each.
+The CVs are A4 documents and should remain within two pages each; the cover letters should remain one page each.
 
-### Cover letters
-
-```bash
-cd source
-xelatex -interaction=nonstopmode -halt-on-error -output-directory=../output letters/letter-en.tex
-xelatex -interaction=nonstopmode -halt-on-error -output-directory=../output letters/letter-en.tex
-xelatex -interaction=nonstopmode -halt-on-error -output-directory=../output letters/letter-tr.tex
-xelatex -interaction=nonstopmode -halt-on-error -output-directory=../output letters/letter-tr.tex
-cd ..
-```
-
-The included letters are specific to the posting currently in `data/description.txt`. Update or replace them for each new application; the CV-tailoring skill does not rewrite them unless asked.
-
-## Tailor the CV to a job
+## Tailor all outputs for a job
 
 1. Paste the full posting into `data/description.txt`, under its comment header, replacing the previous job.
-2. Tell the agent: `Tailor my CV for this job.` For a model that cannot see the folder, send `Follow skills/tailor-cv/SKILL.md` with the contents of `data/experiences.txt`, `data/description.txt`, `source/cv-en.tex`, `source/cv-tr.tex`, and both `source/sections/` language folders.
-3. The agent selects the roles, projects, and skills that answer the posting, rewrites both language versions with the same emphasis, compiles them, and reports what it kept and what it dropped.
-4. Open `output/cv-en.pdf` and `output/cv-tr.pdf`. If the emphasis is wrong, say what to stress and let it rebuild; the facts do not change.
+2. Tell the agent: `Tailor my outputs for this job.` For a model that cannot see the folder, send `Follow skills/tailor-cv/SKILL.md` with the contents of `data/experiences.txt`, `data/description.txt`, both CV entry points, both `source/sections/` language folders, and both `source/letters/` language files.
+3. The agent selects the supported roles, projects, and skills that answer the posting, rewrites the English and Turkish CVs and the English and Turkish cover letters with the same emphasis, clears stale artifacts, compiles all four documents, and reports what it kept and what it dropped.
+4. Open `output/cv-en.pdf`, `output/cv-tr.pdf`, `output/letter-en.pdf`, and `output/letter-tr.pdf`. If the emphasis is wrong, say what to stress and let it rebuild; the facts do not change.
 
 What the skill refuses to do:
 
 - Add an employer, date, tool, metric, or degree that `data/experiences.txt` does not state. Docker does not justify Kubernetes.
 - Borrow wording from the posting unless the recorded experience already supports it.
+- Convert overall years of software experience into years of experience in a specific requested discipline.
+- Leave a cover letter addressed to the previous employer or role.
 - Rewrite `data/experiences.txt` or `data/description.txt`.
 - Change the complete machine-readable record for a single job.
-- Go past two pages, or start when `data/description.txt` still contains only its comment header. In that case it stops and asks for the posting.
+- Let a CV go past two pages or a cover letter past one page, or start when `data/description.txt` still contains only its comment header. In that case it stops and asks for the posting.
 
 ## When your history changes
 
 1. Add or correct the role in `data/experiences.txt`, including city, dates, tools, and any number you can defend in an interview.
-2. Tell the agent: `Update the CV files from data/experiences.txt.`
-3. It refreshes both `source/sections/` language folders, `data/cv.md`, and `data/resume.json` together, then recompiles both CV PDFs.
+2. Tell the agent: `Update all CV files from data/experiences.txt.`
+3. It refreshes both `source/sections/` language folders, `data/cv.md`, and `data/resume.json`; if the current cover letters cite affected facts, it updates those too. It then clears stale artifacts and recompiles all four job-facing PDFs.
 
 To check that the English PDF still has a clean text layer, run this from `source/`:
 
