@@ -56,11 +56,21 @@
 
 ## Projects
 
+### Brand Management — Ankara — Jan 2026 – May 2026
+- Social media management, digital marketing, and video editing.
+- Built company landing page and managed online store operations.
+
 ### Keta — full-stack headless CMS — Ankara — Jan 2025 – present
 - Stack: Next.js, Strapi, PostgreSQL, Docker.
 - Next.js frontend and Strapi headless CMS. Maintains dynamic content for ketaakademi.com.
 - Docker and Docker Compose for Next.js, Strapi, and PostgreSQL.
 - Complex data relations, automated content workflows, and PostgreSQL queries for the API.
+
+### VideoAI — ElevenLabs clone — Ankara — Nov 2024 – Feb 2025
+- Stack: React, Tailwind CSS, Node.js, Python.
+- AI-powered dashboard with voice/video model integration.
+- Extensive form handling with drag-and-drop file upload, safely transferring multi-gigabyte files to the server.
+- UI/UX design improvements and performance optimization.
 
 ### Ankara Lindy Hop — web platform — Ankara — Aug 2024 – present
 - Stack: Next.js, GSAP, Vercel, SEO, Google Analytics.
@@ -68,22 +78,14 @@
 - Core Web Vitals and SEO work, mobile-first layout.
 - Deploys on Vercel. Uses Google Analytics for UI decisions.
 
-### Final Compendium — cross-platform mobile app — Ankara — Mar 2023 – Oct 2023
-- Stack: React Native, Expo, Styled Components, Context API.
-- iOS and Android app.
-- Global state with the Context API. UI with Styled Components.
-- Tuned performance so the app stayed responsive across screen sizes and OS versions.
+### Social Media Manager — Ankara — Mar 2024 – Aug 2024
+- Video creation and social media management.
+- Editorial book editing and cover design.
 
-### Ex-xport — mobile app and admin dashboard — Ankara — Feb 2022 – Dec 2022
-- Stack: React Native, Expo, Figma, Admin.js.
-- Implemented Figma designs in React Native and Expo.
-- Back office with Admin.js for data entry, user management, and monitoring.
-
-### Waste-Age — corporate sustainability platform — Ankara — May 2022 – Nov 2022
-- Stack: Next.js, Tailwind CSS, Node.js.
-- Landing page and login for B2B users comparing industrial waste metrics.
-- Responsive UI and data visualization of corporate waste profiles.
-- Node.js backend for data processing and authentication.
+### Community Manager — Ankara — Feb 2024 – present
+- Instagram and social media management, including video editing.
+- Community and public relations, organization, and event management.
+- Coordinated event venues, DJs, and speakers while ensuring a safe, inclusive environment.
 
 ## Education
 - Middle East Technical University, Ankara — M.S. in Scientific Computing, incomplete. Dates are not recorded; do not invent them.

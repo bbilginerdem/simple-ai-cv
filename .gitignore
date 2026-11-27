@@ -37,5 +37,5 @@ rubber.cache
 *.xdv
 *-converted-to.*
 
-# Generated PDF file:
-main.pdf
+# Generated PDF files:
+output/*.pdf

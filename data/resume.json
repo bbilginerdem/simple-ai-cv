@@ -183,6 +183,22 @@
   ],
   "projects": [
     {
+      "name": "Brand Management",
+      "description": "Brand operations, digital marketing, and web presence.",
+      "keywords": [
+        "Social Media Management",
+        "Video Editing",
+        "Landing Page",
+        "Online Store Management"
+      ],
+      "startDate": "2026-01",
+      "endDate": "2026-05",
+      "highlights": [
+        "Social media management, digital marketing, and video editing.",
+        "Built company landing page and managed online store operations."
+      ]
+    },
+    {
       "name": "Keta",
       "description": "Full-stack headless CMS for ketaakademi.com.",
       "keywords": [
@@ -199,6 +215,24 @@
         "Next.js frontend and Strapi headless CMS that maintains dynamic content for ketaakademi.com.",
         "Docker and Docker Compose for Next.js, Strapi, and PostgreSQL.",
         "Complex data relations, automated content workflows, and PostgreSQL queries for the API."
+      ]
+    },
+    {
+      "name": "VideoAI",
+      "description": "AI-powered ElevenLabs clone platform for voice and video generation.",
+      "keywords": [
+        "React",
+        "Tailwind CSS",
+        "Node.js",
+        "Python",
+        "AI Integration"
+      ],
+      "startDate": "2024-11",
+      "endDate": "2025-02",
+      "highlights": [
+        "AI-powered dashboard with voice/video model integration and responsive UI.",
+        "Extensive form handling with drag-and-drop file upload, safely transferring multi-gigabyte files to the server.",
+        "UI/UX design improvements and performance optimization in Node.js and Python."
       ]
     },
     {
@@ -219,6 +253,39 @@
         "Community site with GSAP animation.",
         "Core Web Vitals and SEO work, mobile-first layout.",
         "Deploys on Vercel. Uses Google Analytics for UI decisions."
+      ]
+    },
+    {
+      "name": "Social Media Manager",
+      "description": "Content creation and publication management.",
+      "keywords": [
+        "Video Editing",
+        "Book Editing",
+        "Cover Design",
+        "Social Media Management"
+      ],
+      "startDate": "2024-03",
+      "endDate": "2024-08",
+      "highlights": [
+        "Video creation and social media management.",
+        "Editorial book editing and cover design."
+      ]
+    },
+    {
+      "name": "Community Manager",
+      "description": "Community building and event operations.",
+      "keywords": [
+        "Community Relations",
+        "Event Organization",
+        "Instagram Management",
+        "Video Editing"
+      ],
+      "startDate": "2024-02",
+      "endDate": null,
+      "highlights": [
+        "Instagram and social media management, including video editing.",
+        "Community and public relations, organization, and event management.",
+        "Coordinated event venues, DJs, and speakers while ensuring a safe, inclusive environment."
       ]
     },
     {
@@ -299,11 +366,13 @@
   ],
   "meta": {
     "format": "JSON Resume style structured data",
-    "sourceOfTruth": "experiences.txt",
+    "sourceOfTruth": "data/experiences.txt",
     "siblingFiles": [
-      "cv.md",
-      "main.pdf",
-      "sections/*.tex"
+      "data/cv.md",
+      "output/cv-en.pdf",
+      "output/cv-tr.pdf",
+      "source/sections/en/*.tex",
+      "source/sections/tr/*.tex"
     ],
     "lastUpdated": "2026-11-25"
   }

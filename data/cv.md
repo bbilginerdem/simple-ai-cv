@@ -1,7 +1,7 @@
 <!--
   Machine-readable CV for Behzat Bilgin Erdem.
-  Facts come only from experiences.txt. Keep this file, resume.json, and
-  sections/*.tex in sync when a role changes.
+  Facts come only from data/experiences.txt. Keep this file, resume.json, and
+  source/sections/en/*.tex plus source/sections/tr/*.tex in sync when a role changes.
   Plain text, single column, standard section names, full URLs, and
   "Mon YYYY - Mon YYYY" dates are what parsers and AI retrieval expect.
 -->
@@ -75,44 +75,68 @@ Frontend-heavy software engineer with 5+ years building web and mobile products 
 
 ## Projects
 
+### Brand Management — brand and digital operations — Ankara, Turkey — Jan 2026 - May 2026
+
+- Directed social media management, digital marketing, and video editing to elevate brand presence.
+- Developed the company landing page and administered day-to-day online store operations.
+
 ### Keta — full-stack headless CMS — Ankara, Turkey — Jan 2025 - Present
 
 Stack: Next.js, Strapi, PostgreSQL, Docker. URL: https://ketaakademi.com
 
-- Next.js frontend and Strapi headless CMS that maintains dynamic content for ketaakademi.com.
-- Docker and Docker Compose for Next.js, Strapi, and PostgreSQL.
-- Complex data relations, automated content workflows, and PostgreSQL queries for the API.
+- Built a full-stack web platform using a Next.js frontend and Strapi headless CMS to manage dynamic content for ketaakademi.com.
+- Containerized Next.js, Strapi, and PostgreSQL using Docker and Docker Compose.
+- Structured complex relational data models, automated content workflows, and optimized PostgreSQL queries for the API.
+
+### VideoAI — ElevenLabs clone — Ankara, Turkey — Nov 2024 - Feb 2025
+
+Stack: React, Tailwind CSS, Node.js, Python.
+
+- Developed an AI-powered video and voice dashboard with seamless model integration and responsive UI in React and Tailwind CSS.
+- Implemented comprehensive form handling with drag-and-drop file uploads, ensuring safe and reliable transfer of multi-gigabyte files to the server.
+- Optimized performance, improved UI/UX designs, and refined backend processing workflows in Node.js and Python.
 
 ### Ankara Lindy Hop — web platform — Ankara, Turkey — Aug 2024 - Present
 
 Stack: Next.js, GSAP, Vercel, SEO, Google Analytics. URL: https://ankaralindyhop.org
 
-- Site for a swing-dance community, with GSAP animation.
-- Core Web Vitals and SEO work, mobile-first layout.
-- Deploys on Vercel. Uses Google Analytics for UI decisions.
+- Built a community platform for a swing-dance organization, featuring interactive GSAP animations.
+- Implemented mobile-first layouts with targeted Core Web Vitals optimization and SEO enhancements.
+- Managed automated deployments on Vercel and leveraged Google Analytics to guide UI/UX improvements.
+
+### Social Media Manager — content and editorial management — Ankara, Turkey — Mar 2024 - Aug 2024
+
+- Produced and edited high-engagement video content and designed publication cover artwork.
+- Managed social media accounts and assisted in editorial preparation and book editing.
+
+### Community Manager — community organization — Ankara, Turkey — Feb 2024 - Present
+
+- Managed social media presence and Instagram community engagement, including video editing for digital channels.
+- Directed event planning and on-site organization, coordinating with venues, DJs, and speakers.
+- Fostered community relations and established protocols to ensure a safe, inclusive event environment.
 
 ### Final Compendium — cross-platform mobile app — Ankara, Turkey — Mar 2023 - Oct 2023
 
 Stack: React Native, Expo, Styled Components, Context API.
 
-- iOS and Android app.
-- Global state with the Context API. UI with Styled Components.
-- Tuned performance so the app stayed responsive across screen sizes and OS versions.
+- Built a cross-platform mobile application for iOS and Android using React Native and Expo.
+- Managed global state architecture using the Context API and crafted modular UI components with Styled Components.
+- Tuned performance and responsiveness across varying screen sizes and operating system versions.
 
 ### Waste-Age — corporate sustainability platform — Ankara, Turkey — May 2022 - Nov 2022
 
 Stack: Next.js, Tailwind CSS, Node.js.
 
-- Landing page and login for B2B users comparing industrial waste metrics.
-- Responsive UI and data visualization of corporate waste profiles.
-- Node.js backend for data processing and authentication.
+- Built responsive landing and authentication workflows for B2B users analyzing industrial waste metrics.
+- Developed data visualization interfaces to display corporate waste profiles effectively.
+- Built a Node.js backend to handle data processing and secure authentication flows.
 
 ### Ex-xport — mobile app and admin dashboard — Ankara, Turkey — Feb 2022 - Dec 2022
 
 Stack: React Native, Expo, Figma, Admin.js.
 
-- Implemented Figma designs in React Native and Expo.
-- Back office with Admin.js for data entry, user management, and monitoring.
+- Implemented design specifications from Figma into a cross-platform mobile app using React Native and Expo.
+- Configured and deployed an administrative back office using Admin.js for data entry, user administration, and system monitoring.
 
 ## Education
 

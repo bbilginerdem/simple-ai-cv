@@ -1,0 +1,30 @@
+Behzat Bilgin Erdem
+Software Engineer — AI & Systems Integration
+Email: bbilgin.erdem@gmail.com | Phone: +90 545 932 4879
+Website: behzatbilginerdem.com | LinkedIn: bbilginerdem | GitHub: bbilginerdem
+
+November 27, 2026
+
+To: Ekrem Furniture Forestry Products Construction Industry & Trade Ltd.
+Hiring Team / Engineering Division
+Ankara, Turkey
+
+Subject: Application for AI-Powered Software Development Specialist
+
+Dear Hiring Team,
+
+I am writing to express my strong interest in the AI-Powered Software Development Specialist position at Ekrem Furniture. The mission to digitize furniture manufacturing workflows and develop an integrated, AI-driven production platform—spanning technical drawings, cutting lists, cost calculations, and CNC file generation—closely aligns with my background in software architecture, systems integration, and computational modeling.
+
+My academic training in Physics (B.S.) and Scientific Computing (M.S. studies) at Middle East Technical University provided me with deep foundations in numerical algorithms, data modeling, and mathematical problem-solving. Over the past 5+ years of engineering experience, I have turned these principles into scalable, production-grade applications.
+
+I believe my profile matches your technical roadmap in the following key areas:
+
+- Software Architecture & API Integration: Proven experience architecting end-to-end applications, designing resilient backends with Python, FastAPI, and Node.js, and diagnosing critical API bottlenecks to substantially lower latency.
+- AI Models & Machine Learning Pipelines: Practical experience in the VideoAI platform integrating AI models, designing multi-gigabyte file transfer flows, and leveraging machine learning and statistical methods from scientific computing.
+- Hardware, Embedded Systems & Production Linkage: Hands-on background at the Space and Accelerator Technologies Center automating hardware with Arduino, transmitting data via Bluetooth, and engineering low-latency (sub-100ms) pipelines—directly applicable to bridging software with CAD/CAM systems and CNC machinery.
+- Databases & Containerization: Designing relational data workflows on PostgreSQL and establishing consistent, containerized deployments with Docker and Docker Compose.
+
+I am eager to contribute to Ekrem Furniture's vision of fusing technology and modern manufacturing. Thank you for your time and consideration. I welcome the opportunity to discuss how my skill set can support your upcoming software and automation projects.
+
+Sincerely,
+Behzat Bilgin Erdem

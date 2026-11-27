@@ -1,0 +1,37 @@
+\documentclass[a4paper,11pt]{article}
+
+% Choose theme, e.g. black, RedViolet, ForestGreen, MidnightBlue, Blue
+\def\theme{MidnightBlue}
+
+% Main font: any installed family (Segoe UI, Noto Sans, Rubik). Leave empty for the serif default.
+\def\cvfont{Noto Sans}
+
+\usepackage{simplecv}
+
+% Searchable document metadata
+\hypersetup{
+  pdftitle={Behzat Bilgin Erdem -- Özgeçmiş (CV)},
+  pdfauthor={Behzat Bilgin Erdem},
+  pdfsubject={Yazılım Mühendisi, Yapay Zekâ ve Sistem Entegrasyonu},
+  pdfkeywords={Behzat Bilgin Erdem, Yazılım Mühendisi, Yapay Zekâ, Python, FastAPI, API Entegrasyonu, Donanım Kontrolü, Docker, PostgreSQL, Bilimsel Hesaplama},
+  pdfcreator={XeLaTeX},
+  pdflang={tr}
+}
+
+\begin{document}
+
+\headinginline[Yazılım Mühendisi --- Yapay Zekâ \& Sistem Entegrasyonu, 5+ Yıl]{Behzat Bilgin Erdem}{
+  \faEnvelope\ \email{bbilgin.erdem@gmail.com},
+  \faPhone\ +90 545 932 4879,
+  \faGlobe\ \website{behzatbilginerdem.com},
+  \faLinkedin\ \linkedin{bbilginerdem},
+  \faGithub\ \github{bbilginerdem}
+}
+
+\import{sections/tr/}{summary.tex}
+\import{sections/tr/}{experience.tex}
+\import{sections/tr/}{projects.tex}
+\import{sections/tr/}{education.tex}
+\import{sections/tr/}{skills.tex}
+
+\end{document}
