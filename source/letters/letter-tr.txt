@@ -1,29 +1,29 @@
 Behzat Bilgin Erdem
-Yazılım Mühendisi, 5+ Yıl — İlişkisel Veri Tabanları & Arka Yüz Sistemleri
+Yazılım Mühendisi, 5+ Yıl — API, Yapay Zekâ & Sistem Entegrasyonu
 E-posta: bbilgin.erdem@gmail.com | Tel: +90 545 932 4879
 Web: behzatbilginerdem.com | LinkedIn: bbilginerdem | GitHub: bbilginerdem
 
 27 Kasım 2026
 
-Kime: CMIT Bilişim — TEYAŞ TDV Eğitim Yatırım A.Ş.
-İlgili Birim / İşe Alım Ekibi
+Kime: İşe Alım Ekibi
+Yazılım Uzmanı
 
-Konu: Veri Tabanı Yöneticisi Başvurusu
+Konu: Yazılım Uzmanı Başvurusu
 
 Sayın Yetkili,
 
-CMIT Bilişim’in, Diyanet İşleri Başkanlığı Bilgi İşlem Daire Başkanlığı bünyesinde yürütülen kamu projelerinde görevlendirilmek üzere ilan ettiği Veri Tabanı Yöneticisi pozisyonuna başvuruyorum. İlanın veri tabanı yönetimi, performans, güvenlik, veri bütünlüğü ve uygulama ekipleriyle koordinasyon vurgusu; arka yüz ve ilişkisel veri tabanı deneyimimle örtüşüyor.
+Kuru meyve sektöründe faaliyet gösteren şirketinizin ilan ettiği Yazılım Uzmanı pozisyonuna başvuruyorum. İlanın yazılım projeleri, API’ler, sistem entegrasyonları, veri tabanlı uygulamalar, yapay zekâ araçları, süreç otomasyonu ve bölümler arası koordinasyon vurgusu; 5+ yıllık uçtan uca yazılım, API ve veri sistemleri deneyimimle örtüşüyor.
 
-5+ yıllık uçtan uca ve arka yüz yazılım geliştirme deneyimine sahibim. Oracle DB ve PostgreSQL ile çalışmalarım yüksek hacimli işlem yönetimi, ilişkisel veri modelleme, sorgu optimizasyonu, veritabanı yönetimi ve konteynerize dağıtımları kapsıyor. Orta Doğu Teknik Üniversitesi Fizik lisansım ve Bilimsel Hesaplama yüksek lisans çalışmalarım; sayısal modelleme, veri yapıları ve büyük matris işlemlerinde bellek yönetimi temellerimi güçlendirdi.
+Python ve SQL ile arka yüz servisleri, PostgreSQL ve Oracle DB veri modelleme, REST ve GraphQL API’leri, güvenli kimlik doğrulama akışları, Docker tabanlı dağıtımlar ve yapay zekâ model entegrasyonu üzerine çalıştım. Orta Doğu Teknik Üniversitesi Fizik lisansım ve Bilimsel Hesaplama yüksek lisans çalışmalarım; sayısal modelleme, istatistiksel analiz ve büyük hesaplama problemlerinde bellek yönetimi temellerimi güçlendirdi.
 
 Öne çıkan deneyimlerim:
 
-- İlişkisel veri tabanı işlemleri: Oracle DB üzerinde günde 10.000+ işlem gerçekleştiren Java ve Spring Boot arka yüz servisleri geliştirdim; üç Oracle sertifikası aldım ve %85 kod kapsamına ulaşan birim testleri kurdum.
-- Veritabanı yönetimi ve süreklilik: Uzay ve Hızlandırıcı Teknolojileri Uygulama ve Araştırma Merkezi’nde veritabanı yönetimi gerçekleştirdim; donanım kontrolünü otomatikleştiren Arduino programları yazdım ve %99.9 sistem çalışma süresi sağladım.
-- PostgreSQL modelleme ve optimizasyon: Keta projesinde karmaşık veri ilişkileri, otomatik içerik iş akışları ve API entegrasyonu için optimize edilmiş PostgreSQL sorguları tasarladım; PostgreSQL’i Docker ve Docker Compose ile konteynerize ettim.
-- Güvenlik ve performans: NexArb’da 500+ eşzamanlı kullanıcı için güvenli kimlik doğrulama akışları mimariledim; FastAPI arka yüzünü entegre ettim, 12 kritik API darboğazını çözerek gecikme süresini %35 azalttım.
+- API ve sistem entegrasyonu: NexArb’da FastAPI arka yüzünü entegre ettim, 12 kritik API darboğazını çözerek gecikme süresini %35 azalttım; FirstBatch’te GraphQL veri çekme katmanı kurarak gereksiz API çağrılarını %60 ve sayfa yükleme süresini 450ms azalttım.
+- İş uygulamaları ve otomasyon: Keta için karmaşık veri ilişkileri, otomatik içerik iş akışları ve optimize edilmiş PostgreSQL sorguları tasarladım; Next.js ön yüzü, Strapi CMS ve veritabanını Docker ve Docker Compose ile konteynerize ettim.
+- Yapay zekâ ve veri yoğun iş akışları: VideoAI’da ses/video model entegrasyonu ve performans optimizasyonu içeren yapay zekâ destekli gösterge paneli geliştirdim; çok gigabaytlık dosyaları güvenli şekilde sunucuya aktaran sürükle-bırak yükleme akışını kurdum.
+- Veri tabanı ve gerçek zamanlı sistemler: Volthread’de Oracle DB üzerinde günde 10.000+ işlem gerçekleştiren Java ve Spring Boot servisleri yazdım; Uzay ve Hızlandırıcı Teknolojileri Uygulama ve Araştırma Merkezi’nde veritabanı yönetimi ve donanım otomasyonu yaparak %99.9 çalışma süresi ve 100ms altı izleme sağladım.
 
-CMIT Bilişim’in kamu projelerinde güvenilir, güvenli ve performans odaklı veri tabanı hizmetlerine katkı sağlamaktan memnuniyet duyarım. Zamanınız ve değerlendirmeniz için teşekkür ederim.
+Yazılım, entegrasyon ve yapay zekâ projelerinizde mevcut uygulamaları iyileştirerek, teknik çalışmaları bölümler arasında koordine ederek ve güvenli veri odaklı çözümler geliştirerek katkı sağlamaktan memnuniyet duyarım. Zamanınız ve değerlendirmeniz için teşekkür ederim.
 
 Saygılarımla,
 Behzat Bilgin Erdem

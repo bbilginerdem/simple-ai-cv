@@ -2,18 +2,19 @@
 name: tailor-cv
 description: >-
   Rewrites the English and Turkish XeLaTeX CVs and cover letters for one job
-  posting. Use when the user asks to tailor, adapt, match, rewrite, or update
-  the CV, resume, application, letter of intent, cover letter, or output files
-  for a job or data/description.txt, or when data/experiences.txt changes and
-  the CVs, letters, data/cv.md, and data/resume.json must be brought back in
-  sync. Facts come only from data/experiences.txt.
+  posting and regenerates all PDF and TXT outputs. Use when the user asks to
+  tailor, adapt, match, rewrite, or update the CV, resume, application, letter
+  of intent, cover letter, or output files for a job or data/description.txt,
+  or when data/experiences.txt changes and the CVs, letters, data/cv.md, and
+  data/resume.json must be brought back in sync. Facts come only from
+  data/experiences.txt.
 ---
 
 # Tailor the CV and cover letters
 
-Facts are in `data/experiences.txt`. The target job is in `data/description.txt`. The CV documents are `source/cv-en.tex` and `source/cv-tr.tex`, with section files in `source/sections/en/` and `source/sections/tr/`. The cover-letter documents are `source/letters/letter-en.tex` and `source/letters/letter-tr.tex`, with matching plain-text copies at `source/letters/letter-en.txt` and `source/letters/letter-tr.txt`. Outputs are `output/cv-en.pdf`, `output/cv-tr.pdf`, `output/letter-en.pdf`, and `output/letter-tr.pdf`.
+Facts are in `data/experiences.txt`. The target job is in `data/description.txt`. The CV documents are `source/cv-en.tex` and `source/cv-tr.tex`, with section files in `source/sections/en/` and `source/sections/tr/`. The cover-letter documents are `source/letters/letter-en.tex` and `source/letters/letter-tr.tex`, with matching plain-text copies at `source/letters/letter-en.txt` and `source/letters/letter-tr.txt`. Outputs are `output/cv-en.pdf`, `output/cv-tr.pdf`, `output/letter-en.pdf`, and `output/letter-tr.pdf`, plus matching plain-text deliverables `output/cv-en.txt`, `output/cv-tr.txt`, `output/letter-en.txt`, and `output/letter-tr.txt`. `xelatex` produces the PDFs; `pdftotext` produces the plain-text CV copies.
 
-A request to tailor the CV, outputs, application, letter of intent, or cover letter—or a changed `data/description.txt`—means all four job-facing PDFs are stale. Update the English and Turkish CVs and the English and Turkish cover letters together.
+A request to tailor the CV, outputs, application, letter of intent, or cover letter—or a changed `data/description.txt`—means all four job-facing source documents and all eight generated deliverables are stale. Update the English and Turkish CVs and the English and Turkish cover letters together, then regenerate every PDF and TXT output.
 
 `data/cv.md` and `data/resume.json` are the complete machine-readable record of every fact. They are not tailored to one job and are not rewritten here; update them only when `data/experiences.txt` changes.
 
@@ -36,7 +37,7 @@ A request to tailor the CV, outputs, application, letter of intent, or cover let
    - Reuse the same supported selection and emphasis chosen for the CVs. A letter may explain relevance, but it may not assert an unrecorded skill, certification, tool, or amount of role-specific experience.
    - Keep the plain-text copies consistent with the `.tex` letters in substance.
 5. Do not edit `data/experiences.txt` or `data/description.txt`.
-6. From `source/`, remove generated files from `output/` except `.gitkeep`, then compile every document twice. `latexmk` needs Perl and is not used.
+6. From `source/`, remove generated files from `output/` except `.gitkeep`, compile every document twice, then create the plain-text deliverables. `latexmk` needs Perl and is not used. `pdftotext` must be installed to create the TXT outputs.
 
 ```bash
 find ../output -maxdepth 1 -type f ! -name '.gitkeep' -delete
@@ -44,9 +45,14 @@ for doc in cv-en cv-tr letters/letter-en letters/letter-tr; do
   xelatex -interaction=nonstopmode -halt-on-error -output-directory=../output "$doc.tex"
   xelatex -interaction=nonstopmode -halt-on-error -output-directory=../output "$doc.tex"
 done
+for cv in cv-en cv-tr; do
+  pdftotext -enc UTF-8 -raw -nopgbrk "../output/$cv.pdf" - | grep -vE '^Page [0-9]+ of [0-9]+$' > "../output/$cv.txt"
+done
+cp letters/letter-en.txt ../output/letter-en.txt
+cp letters/letter-tr.txt ../output/letter-tr.txt
 ```
 
-7. Reply with the roles and projects you kept, the ones you left out, and the paths `output/cv-en.pdf`, `output/cv-tr.pdf`, `output/letter-en.pdf`, and `output/letter-tr.pdf`.
+7. Reply with the roles and projects you kept, the ones you left out, and the paths `output/cv-en.pdf`, `output/cv-tr.pdf`, `output/letter-en.pdf`, `output/letter-tr.pdf`, `output/cv-en.txt`, `output/cv-tr.txt`, `output/letter-en.txt`, and `output/letter-tr.txt`.
 
 ## Do not
 
@@ -64,7 +70,7 @@ No job is involved, so nothing is selected or dropped. Bring every copy back in 
 2. Rewrite `data/cv.md` and `data/resume.json` with the same facts. They hold every role, project, and degree.
 3. Add newly used tools to the matching lines in both `skills.tex` files, `data/cv.md`, and `data/resume.json`, but only when a role or project in `data/experiences.txt` says they were used.
 4. If the current cover letters cite changed facts, update both `.tex` and `.txt` letter versions as well.
-5. Clean `output/`, compile all four documents twice, then confirm the English CV text layer still extracts, expecting one line back:
+5. Clean `output/`, compile all four documents twice, regenerate all four TXT deliverables, then confirm the English CV text layer still extracts, expecting one line back:
 
 ```bash
 pdftotext -enc UTF-8 ../output/cv-en.pdf - | grep -c "Munich, Germany (remote)"

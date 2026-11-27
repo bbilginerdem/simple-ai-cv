@@ -26,7 +26,7 @@ A bilingual English/Turkish XeLaTeX CV that an AI agent tailors for one job at a
 │       ├── letter-en.txt      # Plain-text copy
 │       ├── letter-tr.tex      # Job-specific Turkish cover letter
 │       └── letter-tr.txt      # Plain-text copy
-├── output/                    # Generated PDFs and LaTeX auxiliary files
+├── output/                    # Generated PDFs, plain-text deliverables, and LaTeX auxiliary files
 └── skills/
     └── tailor-cv/
         └── SKILL.md           # Instructions the agent follows
@@ -34,20 +34,20 @@ A bilingual English/Turkish XeLaTeX CV that an AI agent tailors for one job at a
 
 `data/experiences.txt` is the only source of employers, dates, roles, tools, metrics, and degrees. `data/description.txt` holds the one job currently being targeted. The two LaTeX CVs are tailored per job; `data/cv.md` and `data/resume.json` always hold the complete record.
 
-Generated PDFs and auxiliary files are ignored by Git. The `output/` folder is kept in the repository so builds have a stable destination.
+Generated PDFs, generated TXT deliverables, and auxiliary files are ignored by Git. The `output/` folder is kept in the repository so builds have a stable destination.
 
 ## Prerequisites
 
 1. Install an XeLaTeX distribution: MiKTeX on Windows, MacTeX or TeX Live on macOS and Linux.
 2. Install a system sans font. `Noto Sans` is the default in both CV entry points; `Rubik`, `Liberation Sans`, and `Carlito` also work.
 3. Open this folder in an AI coding agent that loads `AGENTS.md` (Qoder, Cursor, Codex, Claude Code, and similar). `AGENTS.md` points it at the skill, so no further setup is needed.
-4. Optionally install `pdftotext` if you want to run the text-extraction check described below.
+4. Install `pdftotext` (Poppler) to generate the plain-text CV outputs and run the text-extraction check.
 
 `latexmk` needs Perl and is not used here.
 
 ## Build the documents
 
-Run these commands from the repository root. They clear stale artifacts from `output/` and rebuild every current job-facing output. Each document is compiled twice so page references and layout settle.
+Run these commands from the repository root. They clear stale artifacts from `output/`, rebuild every current job-facing PDF, and regenerate the matching plain-text deliverables. Each document is compiled twice so page references and layout settle.
 
 ```bash
 cd source
@@ -56,17 +56,22 @@ for doc in cv-en cv-tr letters/letter-en letters/letter-tr; do
   xelatex -interaction=nonstopmode -halt-on-error -output-directory=../output "$doc.tex"
   xelatex -interaction=nonstopmode -halt-on-error -output-directory=../output "$doc.tex"
 done
+for cv in cv-en cv-tr; do
+  pdftotext -enc UTF-8 -raw -nopgbrk "../output/$cv.pdf" - | grep -vE '^Page [0-9]+ of [0-9]+$' > "../output/$cv.txt"
+done
+cp letters/letter-en.txt ../output/letter-en.txt
+cp letters/letter-tr.txt ../output/letter-tr.txt
 cd ..
 ```
 
-The CVs are A4 documents and should remain within two pages each; the cover letters should remain one page each.
+The CVs are A4 documents and should remain within two pages each; the cover letters should remain one page each. `xelatex` writes the PDFs. `pdftotext -raw -nopgbrk` writes `output/cv-en.txt` and `output/cv-tr.txt` from those PDFs, with `grep` removing the printed `Page X of Y` labels; the cover-letter TXT files are copied from `source/letters/`.
 
 ## Tailor all outputs for a job
 
 1. Paste the full posting into `data/description.txt`, under its comment header, replacing the previous job.
 2. Tell the agent: `Tailor my outputs for this job.` For a model that cannot see the folder, send `Follow skills/tailor-cv/SKILL.md` with the contents of `data/experiences.txt`, `data/description.txt`, both CV entry points, both `source/sections/` language folders, and both `source/letters/` language files.
-3. The agent selects the supported roles, projects, and skills that answer the posting, rewrites the English and Turkish CVs and the English and Turkish cover letters with the same emphasis, clears stale artifacts, compiles all four documents, and reports what it kept and what it dropped.
-4. Open `output/cv-en.pdf`, `output/cv-tr.pdf`, `output/letter-en.pdf`, and `output/letter-tr.pdf`. If the emphasis is wrong, say what to stress and let it rebuild; the facts do not change.
+3. The agent selects the supported roles, projects, and skills that answer the posting, rewrites the English and Turkish CVs and the English and Turkish cover letters with the same emphasis, clears stale artifacts, compiles all four documents, regenerates all four TXT deliverables, and reports what it kept and what it dropped.
+4. Open `output/cv-en.pdf`, `output/cv-tr.pdf`, `output/letter-en.pdf`, `output/letter-tr.pdf`, and the matching `.txt` files in `output/`. If the emphasis is wrong, say what to stress and let it rebuild; the facts do not change.
 
 What the skill refuses to do:
 
@@ -82,7 +87,7 @@ What the skill refuses to do:
 
 1. Add or correct the role in `data/experiences.txt`, including city, dates, tools, and any number you can defend in an interview.
 2. Tell the agent: `Update all CV files from data/experiences.txt.`
-3. It refreshes both `source/sections/` language folders, `data/cv.md`, and `data/resume.json`; if the current cover letters cite affected facts, it updates those too. It then clears stale artifacts and recompiles all four job-facing PDFs.
+3. It refreshes both `source/sections/` language folders, `data/cv.md`, and `data/resume.json`; if the current cover letters cite affected facts, it updates those too. It then clears stale artifacts, recompiles all four job-facing PDFs, and regenerates all four TXT deliverables.
 
 To check that the English PDF still has a clean text layer, run this from `source/`:
 
@@ -98,8 +103,12 @@ The expected count is `1`. Zero means the font or layout broke extraction.
 | --- | --- |
 | `output/cv-en.pdf` | Recruiters and hiring managers. English, up to two A4 pages |
 | `output/cv-tr.pdf` | Recruiters and hiring managers. Turkish, up to two A4 pages |
+| `output/cv-en.txt` | Plain-text English CV for portals, email bodies, and ATS-style forms |
+| `output/cv-tr.txt` | Plain-text Turkish CV for portals, email bodies, and ATS-style forms |
 | `output/letter-en.pdf` | English cover letter for the current application |
 | `output/letter-tr.pdf` | Turkish cover letter for the current application |
+| `output/letter-en.txt` | Plain-text English cover letter for email bodies and portal fields |
+| `output/letter-tr.txt` | Plain-text Turkish cover letter for email bodies and portal fields |
 | `data/cv.md` | Applicant forms and AI chat assistants that read text instead of a PDF. Standard section names, full URLs, `Nov 2023 - Sep 2024` dates |
 | `data/resume.json` | Structured parsers. One entry per role, project, and degree, with `highlights` arrays and `YYYY-MM` dates |
 

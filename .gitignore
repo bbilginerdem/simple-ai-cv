@@ -39,3 +39,6 @@ rubber.cache
 
 # Generated PDF files:
 output/*.pdf
+
+# Generated plain-text deliverables:
+output/*.txt
